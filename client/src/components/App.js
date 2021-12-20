@@ -2,6 +2,7 @@ import { Switch, Route } from "react-router-dom";
 import Article from "./Article";
 import Header from "./Header";
 import Home from "./Home";
+import Paywall from "./Paywall";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/paywall">
+          <Paywall />
         </Route>
       </Switch>
     </div>

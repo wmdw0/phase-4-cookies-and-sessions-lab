@@ -5,6 +5,12 @@ import { makeEmojiList } from "../utils";
 function Home() {
   const [articles, setArticles] = useState([]);
 
+  function handleClick(){
+    fetch('/article_click')
+    .then(res => res.json())
+    .then(console.log)
+  }
+  
   useEffect(() => {
     fetch("/articles")
       .then((r) => r.json())
@@ -17,7 +23,7 @@ function Home() {
         const emojis = makeEmojiList(article.minutes_to_read);
         return (
           <article key={article.id}>
-            <h3>
+            <h3 onClick={handleClick}>
               <Link to={`/articles/${article.id}`}>{article.title}</Link>
             </h3>
             <small>
